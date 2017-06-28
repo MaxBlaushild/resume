@@ -1,0 +1,6 @@
+<app-project *ngFor="let project of projects" [project]="project" class="project"></app-project>
+<form (ngSubmit)="requestAccess()" class="request-access" #emailForm="ngForm">
+  <p>Request access to these repositories:</p>
+  <input type="text"  [(ngModel)]="email" [pattern]="farts" placeholder="Your Email Here" name="email" required>
+  <button type="submit" [disabled]="!emailForm.form.valid"></button>
+</form>
