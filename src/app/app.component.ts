@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Card } from './card/card';
+import { ResumeComponent } from './resume/resume.component';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app works!';
+
+  canvasCard: Card = {
+    component: ResumeComponent,
+    state: null
+  }
 }

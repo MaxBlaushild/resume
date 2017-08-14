@@ -1,3 +1,9 @@
-<p>
-  skills works!
-</p>
+<section class="container">
+  <app-skill
+    class="skill"
+    *ngFor="let skill of skills"
+    [skill]="skill"
+    randomizedLocation
+    [randomSack]="'skills'"
+  ></app-skill>
+</section>

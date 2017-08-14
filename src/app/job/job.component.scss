@@ -1,0 +1,44 @@
+.container {
+  width: 65vh;
+  border: 3px solid black;
+  box-sizing: border-box;
+  background-color: black;
+}
+
+.title {
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  padding: 10px;
+  margin-right: 0px;
+  z-index: 1;
+  margin-left: 10px;
+  border: 3px solid black;
+}
+
+.duration {
+  background-color: white;
+  color: black;
+  margin-left: 0px;
+  padding: 10px;
+  z-index: 1;
+  border: 3px solid black;
+}
+
+.text {
+  background-color: black;
+  color: white;
+  padding: 0px 10px;
+}
+
+.header {
+  background-color: white;
+  color: black;
+  display: block;
+
+}
+
+.description {
+  color: white;
+  background-color: black;
+}

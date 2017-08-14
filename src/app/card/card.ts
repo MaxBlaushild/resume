@@ -4,9 +4,7 @@ export interface Card {
 };
 
 export enum CardState {
-  outLeft,
-  left,
+  top,
   center,
-  right,
-  outRight
+  bottom
 }

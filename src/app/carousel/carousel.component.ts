@@ -3,9 +3,9 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
 import { Card, CardState } from './../card/card';
 
 import { ResumeComponent } from './../resume/resume.component';
-import { AboutComponent } from './../about/about.component';
+import { JobsComponent } from './../jobs/jobs.component';
 import { ProjectsComponent } from './../projects/projects.component';
-import { ContactComponent } from './../contact/contact.component';
+import { PicturesComponent } from './../pictures/pictures.component';
 import { SkillsComponent } from './../skills/skills.component';
 
 @Component({
@@ -14,30 +14,20 @@ import { SkillsComponent } from './../skills/skills.component';
   styleUrls: ['./carousel.component.scss'],
   animations: [
   trigger('cardState', [
-    state('left', style({
-      transform: 'translateX(-160%)'
+    state('top', style({
+      transform: 'translateY(-160%)'
     })),
     state('center',   style({
-      transform: 'translateX(0%)'
+      transform: 'translateY(0%)'
     })),
-    state('right', style({
-      transform: 'translateX(160%)',
+    state('bottom', style({
+      transform: 'translateY(160%)',
     })),
-    state('outLeft',   style({
-      transform: 'translateX(-320%)'
-    })),
-    state('outRight',   style({
-      transform: 'translateX(320%)'
-    })),
-    transition('center => right', animate(250)),
-    transition('right => center', animate(250)),
-    transition('left => center', animate(250)),
-    transition('outLeft => left', animate(250)),
-    transition('right => center', animate(250)),
-    transition('center => left', animate(250)),
-    transition('left => outLeft', animate(250)),
-    transition('outRight => right', animate(250)),
-    transition('right => outRight', animate(250)),
+    transition('center => bottom', animate(250)),
+    transition('bottom => center', animate(250)),
+    transition('top => center', animate(250)),
+    transition('bottom => center', animate(250)),
+    transition('center => top', animate(250))
   ])
 ]
 })
@@ -46,24 +36,16 @@ export class CarouselComponent implements OnInit {
 
   cards: Card[] = [
     {
-      component: ResumeComponent,
-      state: CardState.outLeft
-    },
-    {
       component: ProjectsComponent,
-      state: CardState.left
-    },
-    {
-      component: AboutComponent,
-      state: CardState.center
-    },
-    {
-      component: ContactComponent,
-      state: CardState.right
+      state: CardState.top
     },
     {
       component: SkillsComponent,
-      state: CardState.outRight
+      state: CardState.center
+    },
+    {
+      component: JobsComponent,
+      state: CardState.bottom
     }
   ];
 
@@ -78,8 +60,8 @@ export class CarouselComponent implements OnInit {
   shiftRight(): void {
     this.cards.forEach((card) => {
       card.state = card.state + 1;
-      if (card.state > 4) {
-        card.state = CardState.outLeft;
+      if (card.state > 2) {
+        card.state = CardState.top;
       }
     });
   }
@@ -88,7 +70,7 @@ export class CarouselComponent implements OnInit {
     this.cards.forEach((card) => {
       card.state = card.state - 1;
       if (card.state < 0) {
-        card.state = CardState.outRight;
+        card.state = CardState.bottom;
       }
     });
   }

@@ -1,13 +1,6 @@
 $cardWidth: 70vh;
 $cardHeight: 90vh;
 
-.carousel {
-  overflow: scroll;
-  width: 100%;
-  position: absolute;
-  height: 850px;
-}
-
 .card {
   margin: 20px;
   position: fixed;
@@ -16,60 +9,44 @@ $cardHeight: 90vh;
   height: $cardHeight;
   background-color: white;
   top: 2.5%;
-  left: 50%;
-  margin-left: $cardWidth / -2;
+  left: 5%;
+  margin-left: $cardWidth;
   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-  z-index: 10000;
+  z-index: 100;
 }
 
-// .focused {
-
-// }
-
-// .left {
-//   top: 5%;
-//   margin-left: $cardWidth * -0.75;
-// }
-
-// .right {
-//   top: 5%;
-//   margin-right: $cardWidth * -0.75;
-//   right: 0%;
-// }
-
-// .out {
-//   display: none;
-// }
+.carousel {
+  overflow: scroll;
+  width: 100%;
+  position: absolute;
+  height: 850px;
+}
 
 .chevron {
   height: 100px;
   width: 100px;
   opacity: 0.7;
   position: fixed;
+  z-index: 500000;
   top: 50%;
-  margin-top: -50px;
+  right: 5%;
 }
 
 .chevron:hover {
   opacity: 1.0;
 }
 
-.chevron-left {
-  left: 20%;
-  -webkit-transform: rotate(90deg);
-  -moz-transform: rotate(90deg);
-  -o-transform: rotate(90deg);
-  -ms-transform: rotate(90deg);
-  transform: rotate(90deg);
+.chevron-top {
+  margin-top: -110px;
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
 }
 
-.chevron-right {
-  right: 20%;
-  -webkit-transform: rotate(270deg);
-  -moz-transform: rotate(270deg);
-  -o-transform: rotate(270deg);
-  -ms-transform: rotate(270deg);
-  transform: rotate(270deg);
+.chevron-bottom {
+  margin-top: 10px;
 }
 
 

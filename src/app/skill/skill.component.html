@@ -1,0 +1,6 @@
+<section class="container" [dragZone]="true">
+  <i class="{{skill.logo}} logo real"></i>
+  <i class="{{skill.logo}} logo fake"></i>
+  <span>{{skill.name}}</span>
+  <span class="grade {{evaluateGrade()}}" [ngStyle]="{'background-color': widthExp}">{{skill.grade}}</span>
+</section>

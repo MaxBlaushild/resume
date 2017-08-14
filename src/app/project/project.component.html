@@ -1,8 +1,7 @@
-<section class="container">
-  <img class="hero-image" [src]="project.heroImage">
+<section class="container" [dragZone]>
   <section class="text">
-    <p class="name">{{project.name}}</p>
-    <p class="stack">{{project.stack}}</p>
+    <span class="title">{{project.name}}</span>
+    <span class="stack">{{project.stack}}</span>
     <p class="description">{{project.description}}</p>
   </section>
 </section>

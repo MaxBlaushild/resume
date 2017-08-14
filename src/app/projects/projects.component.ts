@@ -1,53 +1,31 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
-import { Project } from '../project/project';
+import { Project } from '../models/project';
+import { EmailService } from '../services/email/email.service';
+import { ProjectsService } from '../services/projects/projects.service';
 
-const pattern = /^[a-z0-9A-Z!#\$%&'\*\+/=\?\^_`\{\|\}~,\-]+(\.[_a-z0-9A-Z!#\$%&'\*\+/=\?\^_`\{\|\}~,\-]+)*@([a-z0-9A-Z]+[-]?[a-z0-9A-Z]+)+(\.[a-z0-9A-Z]{1,}){1,}$/;
 
 @Component({
   selector: 'app-projects',
   templateUrl: './projects.component.html',
   styleUrls: ['./projects.component.scss']
 })
-export class ProjectsComponent implements OnInit {
+export class ProjectsComponent  {
 
   emailPattern: any;
   email: string;
+  height: number;
+  width: number;
+  projects: Project[];
 
-  projects: Project[] = [
-    {
-      name: 'Yacht Bot',
-      stack: 'NodeJS, PostgreSQL, DigitalOcean',
-      description: 'The Yacht Bot is a crypto-currency trading bot. The bot listens in on a feed of all of the major exchanges tickers, provided by the Coinigy API, and interacts with the exchanges using their own proprietary APIs.',
-      heroImage: 'assets/images/yacht-bot.jpeg'
-    },
-    {
-      name: 'Lightupon',
-      stack: 'Swift, Go, PostgreSQL, ImageMagick, AWS',
-      description: 'Lightupon is an ARG story-telling app. Users can can discover interesting content in their immediate vicinity, go on guided trips across town, or create their own trips and content.',
-      heroImage: 'assets/images/yacht-bot.jpeg'
-    },
-    {
-      name: 'Glitchly',
-      stack: 'AngularJS, Ruby, PostgreSQL, ImageMagick, AWS',
-      description: 'Glitchly is a glitch art social network. users can use a series of filters to pixel sort their pictures. Other users see a feed of all of their friend\'s art, comment, and like them.',
-      heroImage: 'assets/images/yacht-bot.jpeg'
-    }
-  ];
-
-  constructor() {
-    this.emailPattern = pattern;
-  }
-
-  ngOnInit() {
+  constructor(
+    private emailService: EmailService,
+    private projectsService: ProjectsService
+  ) {
+    this.projects = projectsService.getProjects();
   }
 
   requestAccess() {
-    alert('farts');
+    this.emailService.send(this.email);
   }
-
-  log() {
-    console.log(this);
-  }
-
 }

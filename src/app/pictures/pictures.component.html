@@ -1,0 +1,6 @@
+<section class="container">
+  <section *ngFor="let picture of pictures" [dragZone]="true" class="container" [randomSack]="'pictures'" randomizedLocation>
+    <img class="picture" [src]="picture">
+    <div class="picture fake"></div>
+  </section>
+</section>
