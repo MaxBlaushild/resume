@@ -1,0 +1,9 @@
+<section class="container">
+  <app-project
+    *ngFor="let project of projects"
+    [project]="project"
+    class="project"
+    randomizedLocation
+    [randomSack]="'projects'"
+  ></app-project >
+</section>

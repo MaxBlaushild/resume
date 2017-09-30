@@ -1,0 +1,9 @@
+<section class="container">
+  <app-job
+    *ngFor="let job of jobs"
+    [job]="job"
+    class="job"
+    randomizedLocation
+    [randomSack]="'jobs'"
+  ></app-job>
+</section>
