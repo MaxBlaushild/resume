@@ -1,9 +1,0 @@
-<section class="container">
-  <app-card
-    *ngFor="let card of cards"
-    class="card" [card]="card"
-    [@cardState]="getStateName(card.state)"
-  ></app-card>
-  <img (click)="shiftLeft()" class="chevron chevron-top" src="assets/images/chevron.png">
-  <img (click)="shiftRight()" class="chevron chevron-bottom" src="assets/images/chevron.png">
-</section>
